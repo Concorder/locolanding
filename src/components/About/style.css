@@ -1,0 +1,14 @@
+.about-section p {
+  font-size: 70px;
+  line-height: 1.12;
+  opacity: 0;
+}
+.about-section p > div {
+  opacity: 0;
+  transform: translateY(0px);
+}
+.about-section p.is-reveal {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

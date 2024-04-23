@@ -1,0 +1,16 @@
+body {
+  cursor: none; /* Hide the default cursor */
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Make sure the cursor doesn't interfere with other elements */
+  z-index: 9999; /* Ensure the cursor is above other elements */
+  background-color: #e100ff; /* Customize the cursor color */
+  mix-blend-mode: difference;
+  opacity: 0.6;
+}
