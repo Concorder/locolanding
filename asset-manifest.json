@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/loco_landing/static/css/main.480674d5.css",
-    "main.js": "/loco_landing/static/js/main.3b2da6be.js",
-    "static/css/296.2f18e275.chunk.css": "/loco_landing/static/css/296.2f18e275.chunk.css",
-    "static/js/296.93e45b19.chunk.js": "/loco_landing/static/js/296.93e45b19.chunk.js",
-    "static/js/453.837286b7.chunk.js": "/loco_landing/static/js/453.837286b7.chunk.js",
-    "static/js/991.ab528090.chunk.js": "/loco_landing/static/js/991.ab528090.chunk.js",
-    "index.html": "/loco_landing/index.html",
-    "main.480674d5.css.map": "/loco_landing/static/css/main.480674d5.css.map",
-    "main.3b2da6be.js.map": "/loco_landing/static/js/main.3b2da6be.js.map",
-    "296.2f18e275.chunk.css.map": "/loco_landing/static/css/296.2f18e275.chunk.css.map",
-    "296.93e45b19.chunk.js.map": "/loco_landing/static/js/296.93e45b19.chunk.js.map",
-    "453.837286b7.chunk.js.map": "/loco_landing/static/js/453.837286b7.chunk.js.map",
-    "991.ab528090.chunk.js.map": "/loco_landing/static/js/991.ab528090.chunk.js.map"
+    "main.css": "/locolanding/static/css/main.480674d5.css",
+    "main.js": "/locolanding/static/js/main.594607be.js",
+    "static/css/296.2f18e275.chunk.css": "/locolanding/static/css/296.2f18e275.chunk.css",
+    "static/js/296.93e45b19.chunk.js": "/locolanding/static/js/296.93e45b19.chunk.js",
+    "static/js/453.837286b7.chunk.js": "/locolanding/static/js/453.837286b7.chunk.js",
+    "static/js/991.ab528090.chunk.js": "/locolanding/static/js/991.ab528090.chunk.js",
+    "index.html": "/locolanding/index.html",
+    "main.480674d5.css.map": "/locolanding/static/css/main.480674d5.css.map",
+    "main.594607be.js.map": "/locolanding/static/js/main.594607be.js.map",
+    "296.2f18e275.chunk.css.map": "/locolanding/static/css/296.2f18e275.chunk.css.map",
+    "296.93e45b19.chunk.js.map": "/locolanding/static/js/296.93e45b19.chunk.js.map",
+    "453.837286b7.chunk.js.map": "/locolanding/static/js/453.837286b7.chunk.js.map",
+    "991.ab528090.chunk.js.map": "/locolanding/static/js/991.ab528090.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.480674d5.css",
-    "static/js/main.3b2da6be.js"
+    "static/js/main.594607be.js"
   ]
 }
