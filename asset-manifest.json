@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/locolanding/static/css/main.400f75d9.css",
-    "main.js": "/locolanding/static/js/main.76d17929.js",
-    "static/css/667.79d3e6e3.chunk.css": "/locolanding/static/css/667.79d3e6e3.chunk.css",
-    "static/js/667.a3d74b9c.chunk.js": "/locolanding/static/js/667.a3d74b9c.chunk.js",
+    "main.js": "/locolanding/static/js/main.5f17992c.js",
+    "static/css/216.5d5b7e4c.chunk.css": "/locolanding/static/css/216.5d5b7e4c.chunk.css",
+    "static/js/216.cf838cc6.chunk.js": "/locolanding/static/js/216.cf838cc6.chunk.js",
     "static/js/453.837286b7.chunk.js": "/locolanding/static/js/453.837286b7.chunk.js",
     "static/js/991.ab528090.chunk.js": "/locolanding/static/js/991.ab528090.chunk.js",
     "static/media/hero2.png": "/locolanding/static/media/hero2.109fa4f8e15bf057d4dc.png",
@@ -21,14 +21,14 @@
     "static/media/Angel_rhapsody.ttf": "/locolanding/static/media/Angel_rhapsody.d0379fbfd168ebc66e9d.ttf",
     "index.html": "/locolanding/index.html",
     "main.400f75d9.css.map": "/locolanding/static/css/main.400f75d9.css.map",
-    "main.76d17929.js.map": "/locolanding/static/js/main.76d17929.js.map",
-    "667.79d3e6e3.chunk.css.map": "/locolanding/static/css/667.79d3e6e3.chunk.css.map",
-    "667.a3d74b9c.chunk.js.map": "/locolanding/static/js/667.a3d74b9c.chunk.js.map",
+    "main.5f17992c.js.map": "/locolanding/static/js/main.5f17992c.js.map",
+    "216.5d5b7e4c.chunk.css.map": "/locolanding/static/css/216.5d5b7e4c.chunk.css.map",
+    "216.cf838cc6.chunk.js.map": "/locolanding/static/js/216.cf838cc6.chunk.js.map",
     "453.837286b7.chunk.js.map": "/locolanding/static/js/453.837286b7.chunk.js.map",
     "991.ab528090.chunk.js.map": "/locolanding/static/js/991.ab528090.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.400f75d9.css",
-    "static/js/main.76d17929.js"
+    "static/js/main.5f17992c.js"
   ]
 }
