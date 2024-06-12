@@ -1,21 +1,34 @@
 {
   "files": {
-    "main.css": "/locolanding/static/css/main.480674d5.css",
-    "main.js": "/locolanding/static/js/main.bc825007.js",
-    "static/css/447.e4948763.chunk.css": "/locolanding/static/css/447.e4948763.chunk.css",
-    "static/js/447.457af971.chunk.js": "/locolanding/static/js/447.457af971.chunk.js",
+    "main.css": "/locolanding/static/css/main.400f75d9.css",
+    "main.js": "/locolanding/static/js/main.76d17929.js",
+    "static/css/667.79d3e6e3.chunk.css": "/locolanding/static/css/667.79d3e6e3.chunk.css",
+    "static/js/667.a3d74b9c.chunk.js": "/locolanding/static/js/667.a3d74b9c.chunk.js",
     "static/js/453.837286b7.chunk.js": "/locolanding/static/js/453.837286b7.chunk.js",
     "static/js/991.ab528090.chunk.js": "/locolanding/static/js/991.ab528090.chunk.js",
+    "static/media/hero2.png": "/locolanding/static/media/hero2.109fa4f8e15bf057d4dc.png",
+    "static/media/beer4.png": "/locolanding/static/media/beer4.d4625b878bc9a39d0100.png",
+    "static/media/beer3.png": "/locolanding/static/media/beer3.3967e26b215c147a5403.png",
+    "static/media/beer5.png": "/locolanding/static/media/beer5.7349e2ea0cc2e3056250.png",
+    "static/media/beer2.png": "/locolanding/static/media/beer2.0950eedb328163285b98.png",
+    "static/media/herologo2.png": "/locolanding/static/media/herologo2.b954aa0b8389ed63f76a.png",
+    "static/media/lager.png": "/locolanding/static/media/lager.072b05c042a13afedfc8.png",
+    "static/media/amber.png": "/locolanding/static/media/amber.a3a83ab412679f2bace0.png",
+    "static/media/stout.png": "/locolanding/static/media/stout.ba007ac3a090fb7963ed.png",
+    "static/media/img2.jpg": "/locolanding/static/media/img2.38f176d1075627d3a0fc.jpg",
+    "static/media/IPAt.png": "/locolanding/static/media/IPAt.c30b4288b927048e6231.png",
+    "static/media/img1.jpg": "/locolanding/static/media/img1.c87f1d498f8291344e55.jpg",
+    "static/media/Angel_rhapsody.ttf": "/locolanding/static/media/Angel_rhapsody.d0379fbfd168ebc66e9d.ttf",
     "index.html": "/locolanding/index.html",
-    "main.480674d5.css.map": "/locolanding/static/css/main.480674d5.css.map",
-    "main.bc825007.js.map": "/locolanding/static/js/main.bc825007.js.map",
-    "447.e4948763.chunk.css.map": "/locolanding/static/css/447.e4948763.chunk.css.map",
-    "447.457af971.chunk.js.map": "/locolanding/static/js/447.457af971.chunk.js.map",
+    "main.400f75d9.css.map": "/locolanding/static/css/main.400f75d9.css.map",
+    "main.76d17929.js.map": "/locolanding/static/js/main.76d17929.js.map",
+    "667.79d3e6e3.chunk.css.map": "/locolanding/static/css/667.79d3e6e3.chunk.css.map",
+    "667.a3d74b9c.chunk.js.map": "/locolanding/static/js/667.a3d74b9c.chunk.js.map",
     "453.837286b7.chunk.js.map": "/locolanding/static/js/453.837286b7.chunk.js.map",
     "991.ab528090.chunk.js.map": "/locolanding/static/js/991.ab528090.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.480674d5.css",
-    "static/js/main.bc825007.js"
+    "static/css/main.400f75d9.css",
+    "static/js/main.76d17929.js"
   ]
 }
