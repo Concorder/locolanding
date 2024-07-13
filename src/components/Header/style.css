@@ -1,5 +1,6 @@
 .header-container {
   position: relative;
+  padding: 0 0 100px 0;
 }
 .header-container .header-menu {
   position: absolute;
@@ -8,7 +9,6 @@
   letter-spacing: 1px;
   font-family: "Syncopate", sans-serif;
   color: #626262;
-  font-weight: 600;
   text-transform: uppercase;
 }
 .header-container .header-menu li {
@@ -16,10 +16,9 @@
 }
 .header-container h1 {
   font-size: 20vw;
-  text-transform: uppercase;
   text-align: center;
-  font-family: "Bai Jamjuree", sans-serif;
-  font-weight: 600;
+  font-family: "Angel Rhapsody", sans-serif;
+  font-weight: 400;
 }
 
 .lineParent {

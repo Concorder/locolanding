@@ -1,14 +1,15 @@
 import React from "react";
 import "./style.scss";
-
+import LogoSvg from "../Logosvg";
+import cartSvg from "../../img/icons/cart.svg"
 export default function Navbar() {
   return (
     <div className="navbar" data-scroll-section >
-      <div>menu</div>
+      <LogoSvg width={"130px"} fill={"#000"}/>
 
-      <div>Flirty Flowers</div>
+      <div>Crart Beer Brewery</div>
 
-      <div>cart</div>
+      <div><img width={"50px"} src={cartSvg} alt="" /></div>
     </div>
   );
 }

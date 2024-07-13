@@ -1,38 +1,45 @@
-import React, { Suspense, useState, useEffect, useRef } from "react";
+import React, { Suspense, useState, useRef, useLayoutEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CustomCursor from "../CustomCursor";
 import Header from "../components/Header";
 import Featured from "../components/Featured";
 import About from "../components/About";
-import Gallery from "../components/Gallery";
 import useLocoScroll from "../hooks/useLocoScroll";
 import "../styles/home.scss";
-
-const LazyGallery = React.lazy(() => import("../components/Gallery"));
-
+import Gallery from "../components/Gallery";
+import logoImg from "../img/herologo2.png"
+// const LazyGallery = React.lazy(() => import("../components/Gallery"));
+import heroImage from "../img/hero2.png";
 const Home = () => {
   const ref = useRef(null);
   const [preloader, setPreloader] = useState(true);
 
   // Custom hook to control scrolling behavior
-  useLocoScroll(!preloader);
+ 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const timer = setTimeout(() => {
       setPreloader(false);
-    }, 1000); // Preloader appears for 3 seconds
+      
+    }, 3000); // Preloader appears for 3 seconds
     return () => clearTimeout(timer);
-  }, []);
-
+  }, [preloader]);
+  useLocoScroll(!preloader);
   return (
       <Suspense fallback={<div>Loading...</div>}>
         <>
           <CustomCursor />
           {preloader ? (
               <div className="loader-wrapper absolute">
-                <h1>Flirty flowers</h1>
-                <h2>Rio de Janeiro</h2>
+               <img src={logoImg} alt="" />
+               <div
+        style={{
+          display: 'none',
+          backgroundImage: `url(${heroImage})`,
+        }}
+      ></div>
+                
               </div>
           ) : (
               <div
@@ -42,10 +49,10 @@ const Home = () => {
                   ref={ref}
               >
                 <Navbar />
-                <Header />
-                <Featured />
+                <Header preHeroImage={heroImage}/>
                 <About />
-                <LazyGallery />
+                <Featured />
+                <Gallery/>
                 <Footer />
               </div>
           )}

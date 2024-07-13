@@ -1,7 +1,7 @@
 .featured-section {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  // height: 100vh;
+  height: 100vh;
 
   align-items: center;
   img {
@@ -38,7 +38,7 @@
     align-items: flex-end;
     img {
       width: 100%;
-      height: 125vh;
+      height: 100vh;
       object-fit: cover;
     }
     h6 {

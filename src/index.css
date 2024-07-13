@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600&family=Bodoni+Moda:opsz@6..96&family=Montserrat:wght@400;600&display=swap');
+@font-face {
+  font-family: "Angel Rhapsody";
+  src: url('./fonts/Angel_rhapsody.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Montserrat:wght@400;600&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

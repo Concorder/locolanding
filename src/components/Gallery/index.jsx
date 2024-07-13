@@ -1,6 +1,17 @@
-import React, {useEffect, useLayoutEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import useOnScreen from "../../hooks/useOnScreen";
+
+import amberBottle from "../../img/amber.png"
+import stoutBottle from "../../img/stout.png"
+import lagerBottle from "../../img/lager.png"
+import ipaBottle from "../../img/IPAt.png"
+
+import lagerBg from "../../img/beer2.png"
+import amberBg from "../../img/beer4.png"
+import stoutBg from "../../img/beer3.png"
+import ipaBg from "../../img/beer5.png"
+
 import cn from "classnames";
 import "./style.scss";
 import gsap from "gsap";
@@ -9,64 +20,68 @@ gsap.registerPlugin(useGSAP);
 
 const images = [
     {
-        src:
-            "https://images.unsplash.com/photo-1566204773863-cf63e6d4ab88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1345&q=100",
-        title: "Dracaena Trifasciata",
-        subtitle: "Live the Beauty",
-        category: "Shooting / Adv.Campaing",
+        src: lagerBg,
+        bottle: lagerBottle,
+        title: "Golden Harvest",
+        subtitle: "Lager",
+        category: "Crisp grain fields",
     },
     {
-        src:
-            "https://images.unsplash.com/photo-1558603668-6570496b66f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=100",
-        title: "Cereus Penuvianus",
-        subtitle: "Live the Beauty",
-        category: "Shooting / Adv.Campaing",
+        src: amberBg,
+        bottle: amberBottle,
+        title: "Amber Arcadia",
+        subtitle: "Amber Ale",
+        category: "Caramel malt embrace",
+    },
+    
+    {
+        src: ipaBg,
+        bottle: ipaBottle,
+        title: "Wildwood",
+        subtitle: "India Pale Ale (IPA)",
+        category: "Citrus pine explosion",
     },
     {
-        src:
-            "https://images.unsplash.com/photo-1567225557594-88d73e55f2cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=100",
-        title: "Calliope",
-        subtitle: "Live the Beauty",
-        category: "Shooting / Adv.Campaing",
+        src: stoutBg,
+        bottle: stoutBottle,
+        title: "Frostbite Stout",
+        subtitle: "Imperial Stout",
+        category: "Rich chocolatey mint",
     },
-    {
-        src:
-            "https://images.unsplash.com/photo-1611145367651-6303b46e4040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2006&q=100",
-        title: "Golden Pothos",
-        subtitle: "Living Room",
-        category: "Shooting / Adv.Campaing",
-    },
+    
+    
 ];
 
 
-export default function Gallery({src, index, columnOffset}) {
+export default function Gallery({src, index, columnOffset, preloader}) {
     const [activeImage, setActiveImage] = useState(1);
 
     const ref = useRef(null);
     const container = useRef()
+    const scrollEl = document.querySelector("#main-container");
     useGSAP(() => {
-
-
         console.log(ref.current.offsetWidth);
         console.log(ref.current.clientWidth);
-        console.log({current: ref.current});
         const sections = gsap.utils.toArray(".gallery-item-wrapper");
+        
+        // console.log("scroller:"+scrollEl)
         gsap.to(sections, {
             xPercent: -100 * (sections.length - 1),
             ease: "none",
             scrollTrigger: {
                 start: "top top",
                 trigger: ref.current,
-                scroller: "#main-container",
+                scroller: scrollEl,
                 pin: true,
-                scrub: .5,
-                snap: 1 / (sections.length - 1),
+                scrub: 1,
+                // snap: 1 / (sections.length - 1),
                 end: () => `+=${ref.current.offsetWidth}`,
             },
         });
+        console.log(sections)
         ScrollTrigger.refresh();
 
-    }, );
+    },[preloader, scrollEl]);
 
     const handleUpdateActiveImage = (index) => {
         setActiveImage(index + 1);
@@ -96,6 +111,7 @@ export default function Gallery({src, index, columnOffset}) {
 
 function GalleryItem({
                          src,
+                         bottle,
                          category,
                          subtitle,
                          title,
@@ -110,7 +126,7 @@ function GalleryItem({
         if (onScreen) {
             updateActiveImage(index);
         }
-    }, [onScreen, index]);
+    }, [onScreen, index, updateActiveImage]);
 
     return (
         <div
@@ -127,7 +143,9 @@ function GalleryItem({
                 <div
                     className="gallery-item-image"
                     style={{backgroundImage: `url(${src})`}}
-                ></div>
+                >
+                    <img className="gallery-bottle" src={bottle} alt="bottle" />
+                </div>
             </div>
             <div></div>
         </div>

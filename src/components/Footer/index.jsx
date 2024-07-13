@@ -43,14 +43,14 @@ export default function Footer() {
 
   return (
     <section className="footer" data-scroll-section>
-      <SectionHeader title="Made in" />
+      <SectionHeader title="contact us for preorder details" />
 
       <h1
-        className={cn("location", { "is-reveal": reveal })}
+        className={cn("opening", { "is-reveal": reveal })}
         id="location-text"
         ref={ref}
       >
-        Rio de Janeiro
+        Opening <br/>Soon
       </h1>
     </section>
   );

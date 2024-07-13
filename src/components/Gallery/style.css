@@ -12,7 +12,7 @@
   mix-blend-mode: difference;
   line-height: 16px;
   color: #dbd8d6;
-  font-family: "Bai Jamjuree";
+  font-family: "Angel Rhapsody";
   font-weight: 600;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -50,7 +50,7 @@
 }
 .gallery .gallery-item-info .gallery-info-title {
   line-height: 6vw;
-  font-family: "Bai Jamjuree";
+  font-family: "Angel Rhapsody";
   font-weight: 600;
   font-size: 6vw;
   -webkit-font-smoothing: antialiased;
@@ -68,7 +68,7 @@
 .gallery .gallery-item-info .gallery-info-category {
   position: relative;
   line-height: 24px;
-  font-family: "Bai Jamjuree";
+  font-family: "Angel Rhapsody";
   font-weight: 400;
   font-size: 24px;
   -webkit-font-smoothing: antialiased;

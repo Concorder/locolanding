@@ -1,7 +1,39 @@
 .header-container{
-
+  height: calc(100vh - 224px);
   position: relative;
+  padding: 0 0 100px 0;
+.logo{
+  position: absolute;
+  top: 0;
+}
+.header-container__image{
+  position: relative;
+  height: inherit;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  img{
+    height: 100%;
+    width: auto;
+  }
+  svg{
+    width: calc(100% - 200px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 50px;
+    animation: netflix 3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes netflix {
+    0%{opacity: 0; width: 100%;}
+    100%{opacity: 1; width: calc(100% - 200px);}
 
+  }
+}
   .header-menu{
     position: absolute;
     left: 0;
@@ -20,11 +52,10 @@
 
   h1 {
     font-size: 20vw;
-    text-transform: uppercase;
     text-align: center;
-
-    font-family: 'Bai Jamjuree', sans-serif;
-    font-weight: 600;
+    color: #464646;
+    font-family: 'Angel Rhapsody', sans-serif;
+    font-weight: 400;
    
    
   }

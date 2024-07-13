@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useLayoutEffect, useEffect } from "react";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/src/locomotive-scroll.scss";
 
@@ -11,7 +11,7 @@ export default function useLocoScroll(start) {
     if (!start) return;
     let locoScroll = null;
 
-    const scrollEl = document.querySelector("#main-container");
+    const scrollEl = document.getElementById("main-container");
 
     locoScroll = new LocomotiveScroll({
       el: scrollEl,
@@ -19,7 +19,7 @@ export default function useLocoScroll(start) {
       multiplier: 1,
       class: "is-reveal",
     });
-
+    console.log("locoEl: "+scrollEl)
     locoScroll.on("scroll", () => {
       ScrollTrigger.update();
     });

@@ -41,11 +41,10 @@ export default function About() {
     >
       <SectionHeader title="about" />
       <p ref={ref} id="headline" className={cn({ "is-reveal": reveal })}>
-        Flirty Flowers is a blog about flowers and the floral designers who make
-        them into art. Creativity and the art of ‘making’ require dialogue. The
-        full purpose of the Flirty Flowers blog is to encourage and inspire. We
-        value art, we value insight, and we value opinion.
-      </p>
+      Welcome to Burgbräu, a lively craft beer brewery dedicated to the artistry of brewing. 
+      Our mission is to inspire and delight through the rich flavors and traditions of craft beer. 
+      We pride ourselves on innovation, community engagement, and a passion for quality. 
+      Join us as we explore and celebrate the dynamic world of craft brewing.</p>
     </section>
   );
 }
