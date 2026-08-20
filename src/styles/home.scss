@@ -7,12 +7,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@100;700&display=swap");
 
 $bg-color: #f5f0ec;
+$mobile: 768px;
+
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 body {
   font-family: "Poppins", sans-serif;
 
   cursor: none;
   background-color: $bg-color;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 .main-container {
@@ -45,17 +62,43 @@ section {
   transition: all 0.25s ease-in-out;
   background-color: #191919;
   color: #dbd8d6;
+  img {
+    max-width: min(220px, 70vw);
+    height: auto;
+  }
   h1 {
-    font-size: 1.5vw;
+    font-size: clamp(18px, 1.5vw, 28px);
     font-family: "Angel Rhapsody", sans-serif;
     font-weight: 400;
   }
   h2 {
-    font-size: 1.5vw;
+    font-size: clamp(14px, 1.5vw, 24px);
 
     text-transform: uppercase;
     font-family: "Bodoni Moda", serif;
     font-style: italic;
     margin-top: 10px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+@media (max-width: $mobile) {
+  .main-container {
+    padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
+  }
+
+  section {
+    padding: 56px 0;
+    .section-header {
+      margin-bottom: 24px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+    }
   }
 }

@@ -7,9 +7,9 @@ export default function Navbar() {
     <div className="navbar" data-scroll-section >
       <LogoSvg width={"130px"} fill={"#000"}/>
 
-      <div>Crart Beer Brewery</div>
+      <div className="navbar-tagline">Crart Beer Brewery</div>
 
-      <div><img width={"50px"} src={cartSvg} alt="" /></div>
+      <div className="navbar-cart"><img width={"50px"} src={cartSvg} alt="Cart" /></div>
     </div>
   );
 }

@@ -60,27 +60,28 @@ export default function Gallery({src, index, columnOffset, preloader}) {
     const container = useRef()
     const scrollEl = document.querySelector("#main-container");
     useGSAP(() => {
-        console.log(ref.current.offsetWidth);
-        console.log(ref.current.clientWidth);
-        const sections = gsap.utils.toArray(".gallery-item-wrapper");
-        
-        // console.log("scroller:"+scrollEl)
-        gsap.to(sections, {
-            xPercent: -100 * (sections.length - 1),
-            ease: "none",
-            scrollTrigger: {
-                start: "top top",
-                trigger: ref.current,
-                scroller: scrollEl,
-                pin: true,
-                scrub: 1,
-                // snap: 1 / (sections.length - 1),
-                end: () => `+=${ref.current.offsetWidth}`,
-            },
-        });
-        console.log(sections)
-        ScrollTrigger.refresh();
+        if (!ref.current) return;
 
+        const sections = gsap.utils.toArray(".gallery-item-wrapper");
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 769px)", () => {
+            gsap.to(sections, {
+                xPercent: -100 * (sections.length - 1),
+                ease: "none",
+                scrollTrigger: {
+                    start: "top top",
+                    trigger: ref.current,
+                    scroller: scrollEl,
+                    pin: true,
+                    scrub: 1,
+                    end: () => `+=${ref.current.offsetWidth}`,
+                },
+            });
+            ScrollTrigger.refresh();
+        });
+
+        return () => mm.revert();
     },[preloader, scrollEl]);
 
     const handleUpdateActiveImage = (index) => {

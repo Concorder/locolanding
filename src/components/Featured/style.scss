@@ -48,3 +48,43 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .featured-section {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 40px;
+    align-items: stretch;
+
+    h6 {
+      font-size: 14px;
+    }
+
+    img {
+      clip-path: none;
+    }
+
+    .featured-row-layout,
+    .featured-column-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .featured-column-layout {
+      align-items: flex-start;
+
+      img {
+        height: auto;
+        max-height: 70vh;
+        object-fit: cover;
+      }
+
+      h6 {
+        transform: none;
+        justify-self: auto;
+      }
+    }
+  }
+}

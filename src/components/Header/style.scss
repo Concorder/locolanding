@@ -14,9 +14,12 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
+  max-width: 100%;
   img{
     height: 100%;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
   }
   svg{
     width: calc(100% - 200px);
@@ -64,5 +67,31 @@
   overflow: hidden;
   .lineChildren{
     transform: translate(0, 500px);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: auto;
+    min-height: 58vh;
+    padding: 0 0 40px 0;
+
+    .header-container__image {
+      width: 100%;
+      min-height: 58vh;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+      }
+
+      svg {
+        width: 82%;
+        padding: 0 12px;
+        animation: none;
+        opacity: 1;
+      }
+    }
   }
 }
