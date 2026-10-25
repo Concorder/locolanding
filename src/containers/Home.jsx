@@ -3,11 +3,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CustomCursor from "../CustomCursor";
 import Header from "../components/Header";
-import Featured from "../components/Featured";
 import About from "../components/About";
 import useLocoScroll from "../hooks/useLocoScroll";
 import "../styles/home.scss";
 import Gallery from "../components/Gallery";
+import IntroReveal from "../components/IntroReveal";
 import logoImg from "../img/herologo2.png"
 // const LazyGallery = React.lazy(() => import("../components/Gallery"));
 import heroImage from "../img/hero2.png";
@@ -25,7 +25,7 @@ const Home = () => {
     }, 3000); // Preloader appears for 3 seconds
     return () => clearTimeout(timer);
   }, [preloader]);
-  useLocoScroll(!preloader);
+  const scrollReady = useLocoScroll(!preloader);
   return (
       <Suspense fallback={<div>Loading...</div>}>
         <>
@@ -48,10 +48,11 @@ const Home = () => {
                   data-scroll-container
                   ref={ref}
               >
+                
                 <Navbar />
-                <Header preHeroImage={heroImage}/>
+                <Header scrollReady={scrollReady} />
                 <About />
-                <Featured />
+                <IntroReveal scrollReady={scrollReady} />
                 <Gallery/>
                 <Footer />
               </div>

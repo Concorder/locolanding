@@ -1,50 +1,55 @@
-import React, { useEffect, useRef, useState } from "react";
-import cn from "classnames";
-
-import SectionHeader from "../SectionHeader";
-
-import gsap from "gsap";
-import SplitText from "../../utils/Split3.min";
-import useOnScreen from "../../hooks/useOnScreen";
-
+import React, { useEffect, useRef } from "react";
+import hops from "../../img/img1.jpg";
+import brewery from "../../img/img2.jpg";
 import "./style.scss";
 
 export default function About() {
-  const ref = useRef(null);
-
-  const [reveal, setReveal] = useState(false);
-  const onScreen = useOnScreen(ref);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (onScreen) setReveal(onScreen);
-  }, [onScreen]);
+    if (!window.IntersectionObserver) return;
 
-  useEffect(() => {
-    if (reveal) {
-      const split = new SplitText("#headline", { type: "lines" });
-
-      gsap.to(split.lines, {
-        duration: 1,
-        y: -20,
-        opacity: 1,
-        stagger: 0.1,
-        ease: "power4.out",
-        // onComplete: () => split.revert(),
+    const elements = sectionRef.current.querySelectorAll(
+      ".about-section__photo, .about-section__lead, .about-section__body, .about-section__signoff"
+    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.remove("is-reveal-pending");
+        observer.unobserve(entry.target);
       });
-    }
-  }, [reveal]);
+    }, { threshold: 0.15, rootMargin: "0px 0px -5% 0px" });
+
+    elements.forEach((element) => {
+      element.classList.add("is-reveal-pending");
+      observer.observe(element);
+    });
+    return () => {
+      observer.disconnect();
+      elements.forEach((element) => element.classList.remove("is-reveal-pending"));
+    };
+  }, []);
 
   return (
-    <section
-      className={cn("about-section", { "is-reveal": reveal })}
-      data-scroll-section
-    >
-      <SectionHeader title="about" />
-      <p ref={ref} id="headline" className={cn({ "is-reveal": reveal })}>
-      Welcome to Burgbräu, a lively craft beer brewery dedicated to the artistry of brewing. 
-      Our mission is to inspire and delight through the rich flavors and traditions of craft beer. 
-      We pride ourselves on innovation, community engagement, and a passion for quality. 
-      Join us as we explore and celebrate the dynamic world of craft brewing.</p>
+    <section ref={sectionRef} className="about-section" data-scroll-section aria-labelledby="about-title">
+      <div className="about-section__copy">
+        <p className="about-section__eyebrow">About Burgbräu</p>
+        <h2 id="about-title">Beer worth<br /><span>making time for.</span></h2>
+        <p className="about-section__lead">A lager after a long day. An IPA over dinner. Something dark when the evening runs on.</p>
+        <p className="about-section__body">That's where we start. We brew beers with distinct flavors, from the clean grain notes of Golden Harvest to the roasted malt of Frostbite Stout. Different styles, each with its own place at the table.</p>
+        <p className="about-section__body">Take a look around. Find one you like. Bring someone along.</p>
+        <p className="about-section__signoff">Burgbräu <span>Craft beer brewery</span></p>
+      </div>
+      <div className="about-section__photos">
+        <figure className="about-section__photo about-section__photo--brewery">
+          <img src={brewery} alt="Brewing equipment inside the brewery" />
+          <figcaption>In the brewhouse</figcaption>
+        </figure>
+        <figure className="about-section__photo about-section__photo--hops">
+          <img src={hops} alt="Fresh green hop cones on a wooden table" />
+          <figcaption>It starts with the ingredients.</figcaption>
+        </figure>
+      </div>
     </section>
   );
 }

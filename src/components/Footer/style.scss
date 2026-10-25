@@ -1,25 +1,54 @@
 .footer {
-  text-align: center;
-  padding-bottom: 200px;
-  .opening {
-    font-size: 26vh;
-    line-height: 1.1;
-    font-family: "Angel Rhapsody", serif;
-
-    opacity: 0;
-    &.is-reveal {
-      opacity: 1;
-    }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px 8vw;
+  padding: clamp(72px, 8vw, 128px) 5vw 32px;
+  margin-left: -5vw;
+  margin-right: -5vw;
+  color: #f5f0ec;
+  background: #282d25;
+  // Contact details are visible without an observer or animation completing.
+  &__eyebrow { font-size: 12px; line-height: 1.5; margin-bottom: 28px; color: #cdcdbf; }
+  h2 { font: 400 clamp(58px, 6.5vw, 108px)/1.03 "Angel Rhapsody", serif; span { color: #d5bc84; } }
+  &__welcome { max-width: 35ch; font-size: 14px; line-height: 1.8; color: #cdcdbf; margin-top: 28px; }
+  &__details { display: grid; grid-template-columns: 1fr 1fr; gap: 38px 28px; align-content: center; }
+  &__detail {
+    min-width: 0;
+    h3 { font-size: 12px; font-weight: 500; margin-bottom: 18px; color: #d5bc84; }
+    address, a, dl { font-style: normal; font-size: 13px; line-height: 1.9; }
+    a { display: inline-block; color: #f5f0ec; text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
+    a:hover { color: #d5bc84; }
+    a:focus-visible { outline: 2px solid #d5bc84; outline-offset: 5px; }
+    p { color: #b7bbae; font-size: 10px; line-height: 1.6; margin: 5px 0 16px; }
   }
+  &__hours { grid-column: 1 / -1; max-width: 420px; dl > div { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 5px; } dd { color: #cdcdbf; white-space: nowrap; } }
+  &__endnote {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    padding-top: 32px;
+    color: #b7bbae;
+    font-size: 10px;
+    line-height: 1.6;
+    p { max-width: 48ch; }
+    > span:last-child { white-space: nowrap; }
+  }
+  &__wordmark { color: #f5f0ec; font: 36px "Angel Rhapsody", serif; }
 }
-
+@media (max-width: 900px) {
+  .footer { grid-template-columns: 1fr; gap: 48px; &__details { max-width: 640px; } }
+}
 @media (max-width: 768px) {
   .footer {
-    padding-bottom: 80px;
-
-    .opening {
-      font-size: clamp(56px, 22vw, 120px);
-      line-height: 0.95;
-    }
+    margin-left: calc(-1 * max(20px, env(safe-area-inset-left)));
+    margin-right: calc(-1 * max(20px, env(safe-area-inset-right)));
+    padding: 64px max(20px, env(safe-area-inset-right)) 100px max(20px, env(safe-area-inset-left));
+    h2 { font-size: clamp(56px, 12vw, 84px); }
+    &__endnote { flex-wrap: wrap; gap: 20px; p { order: 3; width: 100%; max-width: none; } }
   }
+}
+@media (max-width: 420px) {
+  .footer__details { grid-template-columns: 1fr; gap: 28px; }
 }

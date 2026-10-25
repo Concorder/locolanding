@@ -1,97 +1,73 @@
-.header-container{
-  height: calc(100vh - 224px);
+.header-container {
   position: relative;
-  padding: 0 0 100px 0;
-.logo{
+  height: 100vh;
+  height: 100svh;
+  min-height: 480px;
+  padding: 0;
+  margin-left: -5vw;
+  margin-right: -5vw;
+  width: calc(100% + 10vw);
+  overflow: hidden;
+}
+.hero-scene { position: relative; height: 100%; overflow: hidden; isolation: isolate; background: #f6f2e8; }
+.hero-layer {
+  position: absolute;
+  // All three exports share a 1920 × 1280 canvas. Keep identical sizing
+  // and cropping so their cutouts align before scroll offsets are applied.
+  inset: -14% -5%;
+  pointer-events: none;
+  will-change: transform;
+  img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+}
+.hero-layer--sky { z-index: 0; }
+.hero-layer--mountains { z-index: 1; }
+.hero-shade { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(17, 22, 23, 0.35), rgba(17, 22, 23, 0.07) 25%, rgba(17, 22, 23, 0.16) 65%, transparent); }
+.hero-logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 33%;
+  z-index: 3;
+  color: #f5f0ec;
+  text-align: center;
+  padding: 0 20px;
+  will-change: transform;
+  h1 { width: min(55vw, 800px); margin: 22px auto; }
+  svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 5px 18px #0005); }
+}
+.hero-eyebrow { font-size: 10px; line-height: 1.5; letter-spacing: 0.26em; text-transform: uppercase; }
+.hero-tagline { font-family: "Bodoni Moda", Georgia, serif; font-style: italic; font-size: clamp(16px, 1.5vw, 23px); line-height: 1.5; text-shadow: 0 2px 16px #0009; }
+.hero-accessible-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.hero-layer--foreground { z-index: 4; }
+.hero-caption { position: absolute; z-index: 5; bottom: 28px; left: 5vw; right: 5vw; display: flex; justify-content: space-between; gap: 24px; color: #f5f0ec; font-size: 9px; line-height: 1.5; letter-spacing: 0.14em; text-transform: uppercase; text-shadow: 0 2px 8px #000; }
+.main-container > .navbar {
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 22px 5vw;
+  color: #f5f0ec;
+  .logo { fill: #f5f0ec; }
+  .navbar-cart { color: #f5f0ec; }
+  .navbar-cart img { filter: invert(1); }
+  .navbar-cart:focus-visible { outline-color: #f5f0ec; }
 }
-.header-container__image{
-  position: relative;
-  height: inherit;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  max-width: 100%;
-  img{
-    height: 100%;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-  }
-  svg{
-    width: calc(100% - 200px);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 50px;
-    animation: netflix 3s;
-    animation-fill-mode: forwards;
-  }
-  @keyframes netflix {
-    0%{opacity: 0; width: 100%;}
-    100%{opacity: 1; width: calc(100% - 200px);}
-
-  }
-}
-  .header-menu{
-    position: absolute;
-    left: 0;
-    top: 100px;
-
-    letter-spacing: 1px;
-    font-family: 'Syncopate', sans-serif;
-    color: #626262;
-    font-weight: 600;
-    text-transform: uppercase;
-    
-    li {
-      margin: 10px 0;
-    }
-  }
-
-  h1 {
-    font-size: 20vw;
-    text-align: center;
-    color: #464646;
-    font-family: 'Angel Rhapsody', sans-serif;
-    font-weight: 400;
-   
-   
-  }
-}
-.lineParent{
-  overflow: hidden;
-  .lineChildren{
-    transform: translate(0, 500px);
-  }
-}
-
+.lineParent { overflow: hidden; .lineChildren { transform: translate(0, 500px); } }
 @media (max-width: 768px) {
   .header-container {
-    height: auto;
-    min-height: 58vh;
-    padding: 0 0 40px 0;
-
-    .header-container__image {
-      width: 100%;
-      min-height: 58vh;
-
-      img {
-        width: 100%;
-        height: auto;
-        max-height: 70vh;
-      }
-
-      svg {
-        width: 82%;
-        padding: 0 12px;
-        animation: none;
-        opacity: 1;
-      }
-    }
+    min-height: 520px;
+    margin-left: calc(-1 * max(20px, env(safe-area-inset-left)));
+    margin-right: calc(-1 * max(20px, env(safe-area-inset-right)));
+    width: auto;
   }
+  .hero-logo { top: 35%; h1 { width: min(86vw, 600px); margin: 18px auto; } }
+  .hero-eyebrow { font-size: 8px; letter-spacing: 0.16em; }
+  .hero-caption { left: 20px; right: 20px; bottom: 24px; font-size: 8px; > span:first-child { max-width: 18ch; } }
+  .main-container > .navbar { padding: 20px max(20px, env(safe-area-inset-right)) 20px max(20px, env(safe-area-inset-left)); }
 }
+@media (max-height: 600px) and (min-width: 769px) {
+  .header-container { min-height: 360px; }
+  .hero-logo { top: 26%; h1 { width: min(45vw, 600px); margin: 12px auto; } }
+}
+@media (prefers-reduced-motion: reduce) { .hero-layer, .hero-logo { will-change: auto; } }

@@ -1,57 +1,41 @@
-import React, { useEffect, useRef, useState } from "react";
-import useOnScreen from "../../hooks/useOnScreen";
-import SectionHeader from "../SectionHeader";
-import gsap from "gsap";
-import SplitText from "../../utils/Split3.min";
-import cn from "classnames";
-
+import React from "react";
 import "./style.scss";
 
 export default function Footer() {
-  const ref = useRef(null);
-
-  const [reveal, setReveal] = useState(false);
-  const onScreen = useOnScreen(ref, 0.5);
-
-  useEffect(() => {
-    if (onScreen) setReveal(onScreen);
-  }, [onScreen]);
-
-  useEffect(() => {
-    if (reveal) {
-      const split = new SplitText("#location-text", {
-        type: "lines",
-        linesClass: "lineChildren",
-      });
-      const splitParent = new SplitText("#location-text", {
-        type: "lines",
-        linesClass: "lineParent",
-      });
-      gsap.fromTo(
-        split.lines,
-        { y: 200 },
-        {
-          duration: 1,
-          y: 0,
-          // opacity: 1,
-          stagger: 0.1,
-          ease: "power2",
-        }
-      );
-    }
-  }, [reveal]);
-
   return (
-    <section className="footer" data-scroll-section>
-      <SectionHeader title="contact us for preorder details" />
-
-      <h1
-        className={cn("opening", { "is-reveal": reveal })}
-        id="location-text"
-        ref={ref}
-      >
-        Opening <br/>Soon
-      </h1>
-    </section>
+    <footer className="footer" data-scroll-section data-scroll-persistent aria-labelledby="contact-title">
+      <div className="footer__intro">
+        <p className="footer__eyebrow">The brewery & taproom</p>
+        <h2 id="contact-title">Stay for<br /><span>another round.</span></h2>
+        <p className="footer__welcome">Drop by for a beer, bring a few friends, or get in touch about stocking Burgbräu.</p>
+      </div>
+      <div className="footer__details">
+        <div className="footer__detail">
+          <h3>Find us</h3>
+          <address>Burgbräu Brauhaus<br />Hopfengasse 18<br />80331 München, Germany</address>
+        </div>
+        <div className="footer__detail">
+          <h3>Say hello</h3>
+          <a href="mailto:hello@burgbraeu.example">hello@burgbraeu.example</a>
+          <p>For visits, events & general enquiries</p>
+          <a href="mailto:trade@burgbraeu.example">trade@burgbraeu.example</a>
+          <p>For bars, shops & restaurants</p>
+        </div>
+        <div className="footer__detail footer__hours">
+          <h3>Taproom hours</h3>
+          <dl>
+            <div><dt>Wednesday – Friday</dt><dd>16:00 – 22:00</dd></div>
+            <div><dt>Saturday</dt><dd>12:00 – 23:00</dd></div>
+            <div><dt>Sunday</dt><dd>12:00 – 20:00</dd></div>
+            <div><dt>Monday & Tuesday</dt><dd>Closed</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div className="footer__endnote">
+        <span className="footer__wordmark">Burgbräu</span>
+        <p>Fictional brewery concept. Address, opening hours and contacts are illustrative.</p>
+        <span>© {new Date().getFullYear()} Burgbräu</span>
+      </div>
+    </footer>
   );
 }

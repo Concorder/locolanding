@@ -1,16 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import useOnScreen from "../../hooks/useOnScreen";
+import { beers, formatPrice } from "../../utils/beers";
+import { useBasket } from "../Basket";
 
-import amberBottle from "../../img/amber.png"
-import stoutBottle from "../../img/stout.png"
-import lagerBottle from "../../img/lager.png"
-import ipaBottle from "../../img/IPAt.png"
 
-import lagerBg from "../../img/beer2.png"
-import amberBg from "../../img/beer4.png"
-import stoutBg from "../../img/beer3.png"
-import ipaBg from "../../img/beer5.png"
 
 import cn from "classnames";
 import "./style.scss";
@@ -18,39 +12,7 @@ import gsap from "gsap";
 import {useGSAP} from "@gsap/react"
 gsap.registerPlugin(useGSAP);
 
-const images = [
-    {
-        src: lagerBg,
-        bottle: lagerBottle,
-        title: "Golden Harvest",
-        subtitle: "Lager",
-        category: "Crisp grain fields",
-    },
-    {
-        src: amberBg,
-        bottle: amberBottle,
-        title: "Amber Arcadia",
-        subtitle: "Amber Ale",
-        category: "Caramel malt embrace",
-    },
-    
-    {
-        src: ipaBg,
-        bottle: ipaBottle,
-        title: "Wildwood",
-        subtitle: "India Pale Ale (IPA)",
-        category: "Citrus pine explosion",
-    },
-    {
-        src: stoutBg,
-        bottle: stoutBottle,
-        title: "Frostbite Stout",
-        subtitle: "Imperial Stout",
-        category: "Rich chocolatey mint",
-    },
-    
-    
-];
+
 
 
 export default function Gallery({src, index, columnOffset, preloader}) {
@@ -95,9 +57,9 @@ export default function Gallery({src, index, columnOffset, preloader}) {
                 <div className="gallery-counter">
                     <span>{activeImage}</span>
                     <span className="divider"/>
-                    <span>{images.length}</span>
+                    <span>{beers.length}</span>
                 </div>
-                {images.map((image, index) => (
+                {beers.map((image, index) => (
                     <GalleryItem
                         key={index}
                         index={index}
@@ -111,15 +73,19 @@ export default function Gallery({src, index, columnOffset, preloader}) {
 }
 
 function GalleryItem({
+                         id,
+                         price,
                          src,
                          bottle,
                          category,
+                         tastingNotes,
                          subtitle,
                          title,
                          updateActiveImage,
                          index,
                      }) {
     const ref = useRef(null);
+    const { add, quantities } = useBasket();
 
     const onScreen = useOnScreen(ref, 0.5);
 
@@ -137,15 +103,20 @@ function GalleryItem({
             <div></div>
             <div className={"gallery-item"}>
                 <div className="gallery-item-info">
-                    <h1 className="gallery-info-title">{title}</h1>
+                    <h1 className="gallery-info-title" style={{ color: ["#cbc555", "#e76a44", "#e39f3a", "#40b7c7"][index] }}>{title}</h1>
                     <h2 className="gallery-info-subtitle">{subtitle}</h2>
                     <p className="gallery-info-category">{category}</p>
+                    <p className="gallery-info-tasting">{tastingNotes}</p>
+                    <div className="gallery-info-purchase">
+                        <div><strong>{formatPrice(price)}</strong><span> / 330 ml bottle</span><small>+ €0.08 deposit</small></div>
+                        <button type="button" disabled={quantities[id] >= 99} onClick={() => add(id)} aria-label={`Add ${title} to basket`}>+ Add{quantities[id] ? ` (${quantities[id]})` : ""}</button>
+                    </div>
                 </div>
                 <div
                     className="gallery-item-image"
                     style={{backgroundImage: `url(${src})`}}
                 >
-                    <img className="gallery-bottle" src={bottle} alt="bottle" />
+                    <img className="gallery-bottle" src={bottle} alt={`${title} ${subtitle} bottle`} />
                 </div>
             </div>
             <div></div>
